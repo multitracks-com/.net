@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
@@ -32,7 +32,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "multitracks.com", "Web\mult
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{D81E2F48-0605-463B-96D5-D5F727D15298}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MultitracksDB", "DB\MultitracksDB.sqlproj", "{C0455F77-4C86-44AB-A96F-FD433BA1C3BB}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MultiTracksDB", "DB\MultiTracksDB.sqlproj", "{C0455F77-4C86-44AB-A96F-FD433BA1C3BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{81332685-9D05-4270-94E1-6B766A2E7A93}"
 EndProject
