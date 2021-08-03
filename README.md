@@ -1,4 +1,4 @@
-Welcome!
+## Welcome!
 
 So you want to work for MultiTracks.com? This is a step in the right direction!
 
@@ -8,11 +8,7 @@ This repo contains a Class Library and a Web Forms Website project. As a member 
 
 To get started:
 
-	- Clone the repo locally
-	
-	- Open the solution in Visual Studio
-	
-	- Run "Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r" from the Package Manager Console
-	
-	- Finally run the project for further instructions
-
+- Clone the repo locally	
+- Open the solution in Visual Studio	
+- Run "Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r" from the Package Manager Console	
+- Finally run the project for further instructions
