@@ -105,6 +105,7 @@
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </ul>
+                            <p> Link to the  <a href ="artistDetails.aspx">Artist </a>Details</p>
 
                         </div>
                      </div>
