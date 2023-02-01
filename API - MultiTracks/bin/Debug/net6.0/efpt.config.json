@@ -1,0 +1,61 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "MultiTracksDBContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Data",
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Web_Api__multitracks",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Album]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Artist]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AssessmentSteps]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Song]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GetArtistDetails]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetAssessmentSteps]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "..\\DB\\MultiTracksDB.sqlproj",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
