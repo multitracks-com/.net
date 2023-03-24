@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "564e4868-9dc3-4750-a05a-337a0ec7d421": {
+      "ProjectGuid": "564e4868-9dc3-4750-a05a-337a0ec7d421",
+      "DisplayName": "MTDataAccess",
+      "ColorIndex": 0
+    },
+    "619e0b7f-4656-4b09-85c9-0ca9b3a529b1": {
+      "ProjectGuid": "619e0b7f-4656-4b09-85c9-0ca9b3a529b1",
+      "DisplayName": "MTBusiness",
+      "ColorIndex": 1
+    },
+    "87ed2c8e-902b-4400-a71a-41bff7b98f13": {
+      "ProjectGuid": "87ed2c8e-902b-4400-a71a-41bff7b98f13",
+      "DisplayName": "multitracks.com",
+      "ColorIndex": 2
+    },
+    "f79a1399-735a-4ab5-a992-a548051c0687": {
+      "ProjectGuid": "f79a1399-735a-4ab5-a992-a548051c0687",
+      "DisplayName": "MTApi",
+      "ColorIndex": 3
+    },
+    "c0455f77-4c86-44ab-a96f-fd433ba1c3bb": {
+      "ProjectGuid": "c0455f77-4c86-44ab-a96f-fd433ba1c3bb",
+      "DisplayName": "MultiTracksDB",
+      "ColorIndex": 4
+    },
+    "ae17fa27-a116-4da2-94a1-988518f5e3b3": {
+      "ProjectGuid": "ae17fa27-a116-4da2-94a1-988518f5e3b3",
+      "DisplayName": "MTDTOs",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}

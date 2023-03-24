@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using MTDataAccess;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -6,13 +9,13 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
-	public partial class SQL
+	public class SQL
 	{
 		private SqlConnection connection;
 		private SqlTransaction transaction;
 		private SqlCommand command;
 
-		public parameters Parameters = new parameters();
+		public Parameters Parameters = new Parameters();
 
 		private bool autoOpen = false;
 
@@ -23,26 +26,27 @@ namespace DataAccess
 		public SQL(int timeout)
 			: this("admin")
 		{
-			Timeout = timeout;
+            ;
+            Timeout = timeout;
 		}
 
 		public SQL()
 			: this("admin")
 		{
-		}
+        }
 
-		public SQL(string connectionStringName)
+		public SQL(string connectionString)
 		{
-			if (ConfigurationManager.ConnectionStrings[connectionStringName] == null)
-				throw new Exception("\"" + connectionStringName + "\" connection string not found in config file.");
+			if (string.IsNullOrEmpty(connectionString))
+				throw new Exception("\"" + connectionString + "\" cant be null or empty.");
 			else
-				connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ToString();
+				this.connectionString = connectionString;
 		}
 
-		public SQL(string connectionStringName, int timeout)
+		public SQL(string connectionStringName, IConfiguration configuration, int timeout)
 			: this(connectionStringName)
 		{
-			Timeout = timeout;
+            Timeout = timeout;
 		}
 
 		public void OpenConnection()
@@ -284,115 +288,5 @@ namespace DataAccess
 		{
 			return (connection != null && connection.State != ConnectionState.Closed);
 		}
-
-
-		public class parameters
-		{
-			public List<SqlParameter> List = new List<SqlParameter>();
-
-			public SqlParameter this[string parameterName]
-			{
-				get
-				{
-					foreach (SqlParameter param in List)
-					{
-						if (param.ParameterName == parameterName)
-							return param;
-					}
-					return null;
-				}
-			}
-
-			public SqlParameter this[int parameterIndex]
-			{
-				get
-				{
-					return List[parameterIndex];
-				}
-			}
-
-			public void Clear()
-			{
-				List.Clear();
-			}
-
-			public void Add(SqlParameter parameter)
-			{
-				List.Add(parameter);
-			}
-
-			public void Add(string parameterName, SqlDbType type, ParameterDirection direction)
-			{
-				SqlParameter param = new SqlParameter(parameterName, type);
-				param.SqlDbType = type;
-				param.Direction = direction;
-				List.Add(param);
-			}
-
-
-			public void Add(string parameterName, SqlDbType type, object value, byte precision, int size, ParameterDirection direction)
-			{
-				SqlParameter param = new SqlParameter(parameterName, type);
-				param.SqlDbType = type;
-				param.Value = value;
-				param.Precision = precision;
-				param.Size = size;
-				param.Direction = direction;
-				List.Add(param);
-			}
-
-			public void Add(string parameterName, SqlDbType type, object value, byte precision, int size)
-			{
-				SqlParameter param = new SqlParameter(parameterName, type);
-				param.SqlDbType = type;
-				param.Value = value;
-				param.Precision = precision;
-				param.Size = size;
-				List.Add(param);
-			}
-
-			public void Add(string parameterName, SqlDbType type, object value, byte precision)
-			{
-				SqlParameter param = new SqlParameter(parameterName, type);
-				param.SqlDbType = type;
-				param.Value = value;
-				param.Precision = precision;
-				List.Add(param);
-			}
-
-			public void Add(string parameterName, SqlDbType type, byte precision)
-			{
-				SqlParameter param = new SqlParameter(parameterName, type);
-				param.SqlDbType = type;
-				param.Precision = precision;
-				List.Add(param);
-			}
-
-
-			public void Add(string parameterName, SqlDbType type, object value)
-			{
-				SqlParameter param = new SqlParameter(parameterName, type);
-				param.SqlDbType = type;
-				param.Value = value;
-				List.Add(param);
-			}
-
-			public void Add(string parameterName, object value)
-			{
-				SqlParameter param = new SqlParameter(parameterName, value);
-				List.Add(param);
-			}
-
-			public void Add(string parameterName, SqlDbType type)
-			{
-				SqlParameter param = new SqlParameter(parameterName, type);
-				param.SqlDbType = type;
-				List.Add(param);
-			}
-
-
-		}
-
 	}
-
 }

@@ -1,0 +1,11 @@
+C:\Temp\Multitracks-com\MTDTOs\bin\Debug\net6.0\MTDTOs.deps.json
+C:\Temp\Multitracks-com\MTDTOs\bin\Debug\net6.0\MTDTOs.dll
+C:\Temp\Multitracks-com\MTDTOs\bin\Debug\net6.0\ref\MTDTOs.dll
+C:\Temp\Multitracks-com\MTDTOs\bin\Debug\net6.0\MTDTOs.pdb
+C:\Temp\Multitracks-com\MTDTOs\obj\Debug\net6.0\MTDTOs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Temp\Multitracks-com\MTDTOs\obj\Debug\net6.0\MTDTOs.AssemblyInfoInputs.cache
+C:\Temp\Multitracks-com\MTDTOs\obj\Debug\net6.0\MTDTOs.AssemblyInfo.cs
+C:\Temp\Multitracks-com\MTDTOs\obj\Debug\net6.0\MTDTOs.csproj.CoreCompileInputs.cache
+C:\Temp\Multitracks-com\MTDTOs\obj\Debug\net6.0\MTDTOs.dll
+C:\Temp\Multitracks-com\MTDTOs\obj\Debug\net6.0\ref\MTDTOs.dll
+C:\Temp\Multitracks-com\MTDTOs\obj\Debug\net6.0\MTDTOs.pdb
