@@ -106,6 +106,8 @@
                                 </asp:Repeater>
                             </ul>
 
+                            <a href="artistDetails.aspx">Assesment development</a>
+
                         </div>
                      </div>
                   </div>
