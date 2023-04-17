@@ -5,3 +5,5 @@ DB/obj/
 Web/multitracks.com/multitracks.com/Bin/
 packages/
 *.jfm
+*.mdf
+*.ldf

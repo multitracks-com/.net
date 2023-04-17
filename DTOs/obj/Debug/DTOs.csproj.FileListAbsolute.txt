@@ -1,0 +1,9 @@
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DTOs\bin\Debug\DTOs.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DTOs\bin\Debug\DTOs.pdb
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DTOs\bin\Debug\models.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DTOs\bin\Debug\models.pdb
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DTOs\obj\Debug\DTOs.csproj.AssemblyReference.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DTOs\obj\Debug\DTOs.csproj.CoreCompileInputs.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DTOs\obj\Debug\DTOs.csproj.CopyComplete
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DTOs\obj\Debug\DTOs.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DTOs\obj\Debug\DTOs.pdb
