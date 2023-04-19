@@ -1,0 +1,97 @@
+﻿@model IEnumerable<multitracksAPI.Models.Song>
+
+@{
+    ViewBag.Title = "SongList";
+}
+
+<h2>SongList</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlbumID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtistID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bpm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeSignature)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MultiTracks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomMix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.chart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RehearsalMix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patches)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SongSpecificPatch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProPresenter)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArtistID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bpm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeSignature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MultiTracks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomMix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.chart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RehearsalMix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patches)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SongSpecificPatch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProPresenter)
+            </td>
+        </tr>
+    }
+
+</table>

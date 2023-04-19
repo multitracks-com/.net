@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Artist";
+}
+
+<h2>Artist</h2>
+
+<form id="form1" runat="server">
+    <br /><br />
+    <table>
+        <tr>
+            <td>
+                Band Name
+            </td>
+            <td>
+                <asp:TextBox class="form-control form-control-lg" runat="server" ID="tbxTitle" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Biography - Something about the band
+            </td>
+            <td>
+                <asp:TextBox class="form-control form-control-lg" TextMode="multiline" runat="server" ID="tbxBio" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                ImageURL - Profile image, Add URL for a smaller or more focused image
+            </td>
+            <td>
+                <asp:TextBox class="form-control form-control-lg" runat="server" ID="tbxImageURL" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                HeroURL - Banner image, Add URL for a large image
+            </td>
+            <td>
+                <asp:TextBox class="form-control form-control-lg" runat="server" ID="tbxHeroURL" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <asp:Button class="form-control form-control-lg" Text="Save" runat="server" ID="btnSave" />
+            </td>
+        </tr>
+    </table>
+    <br />
+
+</form>
+
+<script type="text/javascript">
+
+
+
+        function AddArtist() {
+
+            var Artist = {};
+            Artist.Title = $("#tbxTitle").val();
+            Artist.Bio= $("#tbxBio").val();
+            Artist.ImageURL= $("#tbxImageURL").val();
+            Artist.HeroURL= $("#tbxHeroURL").val();
+
+
+            $.ajax({
+                url:"<%=Page.ResolveUrl("/api/Artists/Add")%>",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(Artist),
+                dataType: "json",
+                success: function (response) {
+
+                    alert(response);
+
+                },
+
+                error: function (x, e) {
+                    alert('Failed');
+                    alert(x.responseText);
+                    alert(x.status);
+
+                }
+            });
+        }
+
+        $(document).ready(function ()
+         {
+            $("#btnSave").click(function (e) {
+
+                AddArtist();
+                e.preventDefault();
+            });
+        });
+
+</script>   
