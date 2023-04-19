@@ -1,0 +1,12 @@
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\bin\Debug\net7.0\modelsDapper.deps.json
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\bin\Debug\net7.0\modelsDapper.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\bin\Debug\net7.0\modelsDapper.pdb
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\obj\Debug\net7.0\modelsDapper.csproj.AssemblyReference.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\obj\Debug\net7.0\modelsDapper.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\obj\Debug\net7.0\modelsDapper.AssemblyInfoInputs.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\obj\Debug\net7.0\modelsDapper.AssemblyInfo.cs
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\obj\Debug\net7.0\modelsDapper.csproj.CoreCompileInputs.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\obj\Debug\net7.0\modelsDapper.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\obj\Debug\net7.0\refint\modelsDapper.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\obj\Debug\net7.0\modelsDapper.pdb
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\modelsDapper\obj\Debug\net7.0\ref\modelsDapper.dll

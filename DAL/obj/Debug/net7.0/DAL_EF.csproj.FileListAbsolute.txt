@@ -1,0 +1,14 @@
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\bin\Debug\net7.0\DAL_EF.deps.json
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\bin\Debug\net7.0\DAL_EF.runtimeconfig.json
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\bin\Debug\net7.0\DAL_EF.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\bin\Debug\net7.0\DAL_EF.pdb
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\DAL_EF.csproj.AssemblyReference.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\DAL_EF.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\DAL_EF.AssemblyInfoInputs.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\DAL_EF.AssemblyInfo.cs
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\DAL_EF.csproj.CoreCompileInputs.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\DAL_EF.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\refint\DAL_EF.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\DAL_EF.pdb
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\DAL_EF.genruntimeconfig.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\DAL\obj\Debug\net7.0\ref\DAL_EF.dll
