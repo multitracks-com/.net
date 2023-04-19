@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace DAL.Models;
+namespace DAL_EF.Models;
 
 public partial class MultiTracksContext : DbContext
 {

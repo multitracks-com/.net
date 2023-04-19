@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using DAL.Models;
+using DAL_EF.Models;
 using BL.BE;
 using BL.DTO;
 
@@ -27,7 +27,7 @@ namespace API_EF.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception("Unexpected error" + ex.Message);
+                throw new Exception("Unexpected error " + ex.Message);
             }
             
         }
@@ -41,11 +41,11 @@ namespace API_EF.Controllers
 
                 bool isSuccess = artistBE.CreateArtist(artist);
 
-                return isSuccess == true ? Ok("Artist successfully added") : BadRequest("Failed to add the artist");
+                return isSuccess == true ? Ok("Artist successfully added.") : BadRequest("Failed to add the artist.");
             }
             catch (Exception ex)
             {
-                throw new Exception("Unexpected error" + ex.Message);
+                throw new Exception("Unexpected error " + ex.Message);
             }
         }
 

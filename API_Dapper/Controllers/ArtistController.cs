@@ -1,60 +1,47 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
-using modelsDapper;
+using BL_Dap.DTO_Dap;
+using BL_Dap.BE_Dap;
 using System.Collections.Generic;
-
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace API_Dapper.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class ArtistController : ControllerBase
+    public class artistController : ControllerBase
     {
-
-        private string connection = "Data Source=localhost\\SQLExpress;Initial Catalog=MultiTracks;Integrated Security=True;";
-        // GET: api/<ArtistController>
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("artist/search")]
+        public IActionResult GetArtistByName(string name)
         {
+            try
+            {
+                artistBE artistBE = new artistBE();
 
-            IEnumerable<artist> lst = null;
+                IEnumerable<artistDTO_Dap> lst = artistBE.GetArtistByName(name);
 
-                using (var db = new SqlConnection(connection))
-                {
-                    var sql = "SELECT artistID, title, biography, imageURL, heroURL FROM artist";
-
-                    lst = db.Query<artist>(sql);
-                }
-
-            return Ok(lst);
+                return Ok(lst);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unexpected error " + ex.Message);
+            }
         }
 
-        // GET api/<ArtistController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpPost("artist/add")]
+        public IActionResult Create([FromBody] artistCreateDTO_Dap artist)
         {
-            return "value";
-        }
+            try
+            {
+                artistBE artistBE = new artistBE();
 
-        // POST api/<ArtistController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+                bool isSuccess = artistBE.CreateArtist(artist);
 
-        // PUT api/<ArtistController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ArtistController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+                return isSuccess == true ? Ok("Artist successfully added.") : BadRequest("Failed to add the artist.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Unexpected error " + ex.Message);
+            }
         }
     }
 }

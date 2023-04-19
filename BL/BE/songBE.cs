@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BL.DTO;
-using DAL.Models;
 using DAL_EF.Models;
+using DAL_EF.TE;
 
 namespace BL.BE
 {
@@ -13,9 +13,9 @@ namespace BL.BE
     {
         public pagedSongsDTO getSongs(int pageSize, int currentPageNumber)
         {
-            DAL_EF.TE.songTE songTE = new DAL_EF.TE.songTE();
+            songTE songTE = new songTE();
 
-            DAL_EF.Models.pagedSongs _songs = songTE.GetSongs(pageSize, currentPageNumber);
+            pagedSongs _songs = songTE.GetSongs(pageSize, currentPageNumber);
 
             pagedSongsDTO paged = new pagedSongsDTO(_songs);
 

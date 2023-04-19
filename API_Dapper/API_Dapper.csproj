@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\modelsDapper\modelsDapper.csproj" />
+    <ProjectReference Include="..\BE_Dap\BL_Dap.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BL.BE;
 using BL.DTO;
-using DAL.Models;
 using Newtonsoft.Json.Linq;
 
 namespace API_EF.Controllers
@@ -22,7 +21,7 @@ namespace API_EF.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception("Unexpected error" + ex.Message);
+                throw new Exception("Unexpected error " + ex.Message);
             }
         }
     }

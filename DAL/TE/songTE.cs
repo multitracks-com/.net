@@ -4,26 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Azure;
-using DAL.Models;
+using DAL_EF.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL_EF.TE
 {
     public class songTE
     {
-        public Models.pagedSongs GetSongs(int pageSize , int currentPageNumber)
+        public pagedSongs GetSongs(int pageSize , int currentPageNumber)
         {
-            Models.pagedSongs res = new Models.pagedSongs();
+            pagedSongs res = new pagedSongs();
 
             using (var context = new MultiTracksContext()) {
                 List<Song> songList = context.Songs.ToList();
 
                 if (songList == null)
                 {
-                    Models.pagedSongs Data = new Models.pagedSongs();
+                    pagedSongs Data = new pagedSongs();
                     return Data;
                 }
 
+                currentPageNumber = currentPageNumber == 0 ? 1 : currentPageNumber;
                 int maxPagSize = 50;
                 pageSize = (pageSize > 0 && pageSize <= maxPagSize) ? pageSize : maxPagSize;
 

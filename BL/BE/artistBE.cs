@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL_EF.TE;
 using BL.DTO;
-using DAL.Models;
+using DAL_EF.Models;
 
 namespace BL.BE
 {

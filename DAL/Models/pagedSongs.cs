@@ -12,6 +12,6 @@ namespace DAL_EF.Models
         public int totalPages { get; set; }
         public int pageSize { get; set; }
         public int currentPage { get; set; }
-        public IEnumerable<DAL.Models.Song> songs { get; set; }
+        public IEnumerable<Song> songs { get; set; }
     }
 }

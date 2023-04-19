@@ -1,0 +1,15 @@
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\bin\Debug\net7.0\BL_Dap.deps.json
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\bin\Debug\net7.0\BL_Dap.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\bin\Debug\net7.0\BL_Dap.pdb
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\bin\Debug\net7.0\DAL_Dapper.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\bin\Debug\net7.0\DAL_Dapper.pdb
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\BL_Dap.csproj.AssemblyReference.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\BL_Dap.GeneratedMSBuildEditorConfig.editorconfig
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\BL_Dap.AssemblyInfoInputs.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\BL_Dap.AssemblyInfo.cs
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\BL_Dap.csproj.CoreCompileInputs.cache
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\BL_Dap.csproj.CopyComplete
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\BL_Dap.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\refint\BL_Dap.dll
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\BL_Dap.pdb
+D:\Personal Alan\Proyectos\Assessment MT\MultiTracks\BE_Dap\obj\Debug\net7.0\ref\BL_Dap.dll
