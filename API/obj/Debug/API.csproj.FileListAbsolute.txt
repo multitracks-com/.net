@@ -1,0 +1,2 @@
+C:\Users\colto\source\repos\.net\API\obj\Debug\API.csproj.AssemblyReference.cache
+C:\Users\colto\source\repos\.net\API\obj\Debug\API.csproj.CoreCompileInputs.cache
