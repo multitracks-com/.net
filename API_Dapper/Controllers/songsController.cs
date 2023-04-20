@@ -8,7 +8,7 @@ namespace API_Dapper.Controllers
     [ApiController]
     public class songsController : ControllerBase
     {
-        [HttpGet("song/search")]
+        [HttpGet("song/list")]
         public IActionResult GetSongs(int currentPageNumber, int pageSize)
         {
             try

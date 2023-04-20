@@ -10,7 +10,7 @@ namespace API_EF.Controllers
     [ApiController]
     public class SongsController : ControllerBase
     {
-        [HttpGet("song/search")]
+        [HttpGet("song/list")]
         public IActionResult getSongs([FromQuery] int pageSize, int currentPageNumber)
         {
             try
