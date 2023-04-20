@@ -106,7 +106,7 @@
                                 </asp:Repeater>
                             </ul>
 
-                            <a href="../../views/allartists/allartists.aspx">Test development by Alan Sierra</a>
+                            <p style="font-size: large;"><a href="../../views/allartists/allartists.aspx">Test development by Alan Sierra</a></p> 
 
                         </div>
                      </div>

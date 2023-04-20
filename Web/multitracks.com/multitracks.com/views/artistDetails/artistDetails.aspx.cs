@@ -29,53 +29,85 @@ public partial class artistDetails : System.Web.UI.Page
 
             while (data.Read())
             {
-                song song = new song();
-
-                song.songID = data.GetInt32(10);
-                song.songTitle = data.GetString(11);
-                song.bpm = Convert.ToString(data.GetDecimal(12)) + " BPM";
-                song.albumSongID = data.GetInt32(13);
-                song.timeSignature = data.GetString(14);
-
-                album albumExists = artist.albums?.Where(a => a.albumID == song.albumSongID).FirstOrDefault();
-
-                if (albumExists == null)
+                if (artist.artistID == 0)
                 {
-                    album newAlbum = new album();
-                    List<song> newSongList = new List<song>();
+                    artist.artistID = data.GetInt32(0);
+                    artist.artistTitle = data.GetString(1);
+                    artist.biography = data.GetString(2);
+                    artist.artistImage = data.GetString(3);
+                    artist.heroURL = data.GetString(4);
+                    List<album> newAlbumList = new List<album>();
+                    artist.albums = newAlbumList;
+                }
 
-                    newAlbum.albumID = data.GetInt32(5);
-                    newAlbum.albumTitle = data.GetString(6);
-                    newAlbum.albumImage = data.GetString(7);
-                    newAlbum.year = data.GetInt32(8);
-                    newAlbum.albumSongID = data.GetInt32(9);
+                bool hasNoAlbums = data.IsDBNull(5); //albumID
 
-                    newSongList.Add(song);
-                    newAlbum.songs = newSongList;
-
-                    if (artist.artistID == 0)
-                    {
-                        List<album> newAlbumList = new List<album>();
-
-                        newAlbumList.Add(newAlbum);
-
-                        artist.artistID = data.GetInt32(0);
-                        artist.artistTitle = data.GetString(1);
-                        artist.biography = data.GetString(2);
-                        artist.artistImage = data.GetString(3);
-                        artist.heroURL = data.GetString(4);
-                        artist.albums = newAlbumList;
-                    }
-                    else
-                    {
-                        artist.albums.Add(newAlbum);
-                    }
+                if (hasNoAlbums)
+                {
+                    List<album> newAlbumList = new List<album>();
+                    artist.albums = newAlbumList;
                 }
                 else
                 {
-                    albumExists.songs.Add(song);
-                }
+                    bool hasNoSongs = data.IsDBNull(10);//songID
 
+                    if (hasNoSongs) {
+
+                        int albumID = data.GetInt32(5);
+
+                        album albumExists = artist.albums?.Where(a => a.albumID == albumID).FirstOrDefault();
+
+                        if (albumExists == null)
+                        {
+                            album newAlbum = new album();
+                            List<song> newSongList = new List<song>();
+
+                            newAlbum.albumID = data.GetInt32(5);
+                            newAlbum.albumTitle = data.GetString(6);
+                            newAlbum.albumImage = data.GetString(7);
+                            newAlbum.year = data.GetInt32(8);
+                            newAlbum.albumSongID = data.GetInt32(9);
+
+                            newAlbum.songs = newSongList;
+
+                            artist.albums.Add(newAlbum);
+                        }
+                    }
+                    else //Has songs
+                    {
+                        song song = new song();
+
+                        song.songID = data.GetInt32(10);
+                        song.songTitle = data.GetString(11);
+                        song.bpm = Convert.ToString(data.GetDecimal(12)) + " BPM";
+                        song.albumSongID = data.GetInt32(13);
+                        song.timeSignature = data.GetString(14);
+
+                        album albumExists = artist.albums?.Where(a => a.albumID == song.albumSongID).FirstOrDefault();
+
+                        if (albumExists == null)
+                        {
+                            album newAlbum = new album();
+                            List<song> newSongList = new List<song>();
+
+                            newAlbum.albumID = data.GetInt32(5);
+                            newAlbum.albumTitle = data.GetString(6);
+                            newAlbum.albumImage = data.GetString(7);
+                            newAlbum.year = data.GetInt32(8);
+                            newAlbum.albumSongID = data.GetInt32(9);
+
+                            newSongList.Add(song);
+                            newAlbum.songs = newSongList;
+
+
+                            artist.albums.Add(newAlbum);
+                        }
+                        else
+                        {
+                            albumExists.songs.Add(song);
+                        }
+                    }
+                }
             }
 
             sql.CloseReader(data);
@@ -110,28 +142,32 @@ public partial class artistDetails : System.Web.UI.Page
             List<albumDTO> allAlbums = new List<albumDTO>();
             List<songDTO> allSongs = new List<songDTO>();
 
-            foreach (album album in artist.albums)
-            {
+            if(artist.albums != null) {
 
-                albumDTO _albumDTO = new albumDTO()
+                foreach (album album in artist.albums)
                 {
-                    album = album,
-                    artistTitle = artist.artistTitle,
-                };
 
-                allAlbums.Add(_albumDTO);
+                    albumDTO _albumDTO = new albumDTO()
+                    {
+                        album = album,
+                        artistTitle = artist.artistTitle,
+                    };
 
-                album.songs.ForEach(song =>
-                {
-                    songDTO _songDTO = new songDTO();
+                    allAlbums.Add(_albumDTO);
 
-                    _songDTO.song = song;
-                    _songDTO.albumTitle = album.albumTitle;
-                    _songDTO.albumImage = album.albumImage;
+                    album.songs.ForEach(song =>
+                    {
+                        songDTO _songDTO = new songDTO();
 
-                    allSongs.Add(_songDTO);
-                });
+                        _songDTO.song = song;
+                        _songDTO.albumTitle = album.albumTitle;
+                        _songDTO.albumImage = album.albumImage;
+
+                        allSongs.Add(_songDTO);
+                    });
+                }
             }
+
 
 
             songsRepeater.DataSource = allSongs;

@@ -40,13 +40,13 @@
 				<nav class="discovery--nav">
 					<ul class="discovery--nav--list tab-filter--list u-no-scrollbar">
 						<li class="discovery--nav--list--item tab-filter--item is-active">
-							<a class="tab-filter" href="../artists/details.aspx">Overview</a>
+							<a class="tab-filter" href="#">Overview</a>
 						</li>
 						<li class="discovery--nav--list--item tab-filter--item">
-							<a class="tab-filter" href="../artists/songs/details.aspx">Songs</a>
+							<a class="tab-filter" href="#">Songs</a>
 						</li>
 						<li class="discovery--nav--list--item tab-filter--item">
-							<a class="tab-filter" href="../artists/albums/details.aspx">Albums</a>
+							<a class="tab-filter" href="#">Albums</a>
 						</li>
 					</ul> <!-- /.browse-header-filters -->
 				</nav>
