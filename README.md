@@ -12,3 +12,21 @@ To get started:
 - Open the solution in Visual Studio	
 - Run "Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r" from the Package Manager Console	
 - Finally run the project for further instructions
+
+
+## Development of the test - Alan Sierra
+During the development of the test, the following tasks were carried out:
+
+### Creation of Stored Procedure and synchronization of view
+A Stored Procedure was created for the query of artist details and the corresponding view was synchronized to efficiently obtain the required information.
+
+### Creation of view all artists
+A view was created to display all artists and allow access to the artist details view by selecting one.
+
+### Creation of API project with Entity Framework and NET 7
+An API project was developed using Entity Framework and NET 7 to implement the 3 endpoints required in the test. 
+
+### Creation of API project with Dapper and NET 7
+A second API project was also created using Dapper and NET 7 to implement the same 3 endpoints required in the test. The Dapper library was used to efficiently access the database.
+
+ **Note** : To create the database with the stored procedures, relationships, and new table, run the script "MT Assessment Create DB.sql" located in the "Create DB Assessment" folder. This script will set up the necessary database components for the test development. Make sure to review the script and modify any parameters as needed before running it on your database instance.
