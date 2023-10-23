@@ -2,11 +2,11 @@
 	@artistName NVARCHAR(100)
 AS
 BEGIN
-    SELECT Artist.artistID as ArtistID,
-           Artist.title as artistTitle,
-           Artist.imageURL as ImageURL,
-           Artist.heroURL as HeroURL,
+    SELECT Artist.artistID as ArtistId,
+           Artist.title as ArtistTitle,
+           Artist.imageURL as ImageUrl,
+           Artist.heroURL as HeroUrl,
            Artist.biography as Biography
     FROM dbo.Artist Artist
-    WHERE Title like '%'+@artistName+'%';
+    WHERE ArtistTitle like '%'+@artistName+'%';
 END
