@@ -1,8 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
-using multitracks.com.api.Controllers;
-using multitracks.com.api.Repository;
-using multitracks.com.api.Repository.Interface;
+using System.Linq;
+using System.Reflection;
 using System.Web.Http;
 
 namespace multitracks.com.api
@@ -14,11 +13,11 @@ namespace multitracks.com.api
             // Create a new container builder
             var builder = new ContainerBuilder();
 
-            // Register your repository
-            builder.RegisterType<ArtistRepository>().As<IArtistRepository>().InstancePerDependency();
+            // Use reflection to automatically register all interfaces and their implementations
+            RegisterInterfacesAndImplementations(builder);
 
             // Register your controller
-            builder.RegisterType<ArtistController>().InstancePerRequest();
+            RegisterControllers(builder);
 
             // Build the container
             var container = builder.Build();
@@ -34,6 +33,46 @@ namespace multitracks.com.api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+        }
+
+        private static void RegisterInterfacesAndImplementations(ContainerBuilder builder)
+        {
+            // Get the current assembly (you can specify a different assembly if needed)
+            var assembly = Assembly.GetExecutingAssembly();
+
+            // Use reflection to find all interfaces and their implementations
+            var types = assembly.GetTypes();
+
+            var interfaceTypes = types.Where(type => type.IsInterface);
+            var concreteTypes = types.Where(type => !type.IsInterface && !type.IsAbstract);
+
+            foreach (var interfaceType in interfaceTypes)
+            {
+                // Find the corresponding implementation type based on naming conventions
+                var implementationType = concreteTypes.FirstOrDefault(t =>
+                    interfaceType.IsAssignableFrom(t) && t.Name.StartsWith(interfaceType.Name.Substring(1)));
+
+                if (implementationType != null)
+                {
+                    builder.RegisterType(implementationType).As(interfaceType).InstancePerDependency();
+                }
+            }
+        }
+
+        private static void RegisterControllers(ContainerBuilder builder)
+        {
+            // Get the current assembly (you can specify a different assembly if needed)
+            var assembly = Assembly.GetExecutingAssembly();
+
+            // Use reflection to find all classes that inherit from ApiController
+            var controllerTypes = assembly.GetTypes()
+                .Where(type => typeof(ApiController).IsAssignableFrom(type) && !type.IsAbstract);
+
+            // Register all found controllers
+            foreach (var controllerType in controllerTypes)
+            {
+                builder.RegisterType(controllerType).InstancePerRequest();
+            }
         }
     }
 }

@@ -1,17 +1,20 @@
-﻿CREATE PROCEDURE [dbo].[GetArtistDetails]
+﻿CREATE PROCEDURE dbo.GetArtistDetails
 	@artistID INT
 AS
 BEGIN
-	SELECT Artist.title AS artistTitle,
-		   Artist.imageURL AS artistImageUrl,
-		   Artist.heroURL AS artistHeroUrl,
-		   Artist.biography AS artistBiography,
-		   Song.title AS songTitle,
-		   Song.bpm AS songBpm,
-		   Album.title AS albumTitle,
-		   Album.imageURL AS albumImageUrl
-	FROM dbo.Artist Artist
-	LEFT JOIN dbo.Song Song ON Artist.artistID = Song.artistID
-	LEFT JOIN dbo.Album Album ON Album.albumID = Song.albumID
-	WHERE Artist.artistID = @artistID
+	SET NOCOUNT ON;
+
+		SELECT 
+				a.title AS artistTitle,
+				a.imageURL AS artistImageUrl,
+				a.heroURL AS artistHeroUrl,
+				a.biography AS artistBiography,
+				s.title AS songTitle,
+				s.bpm AS songBpm,
+				al.title AS albumTitle,
+				al.imageURL AS albumImageUrl
+		FROM Artist a
+				INNER JOIN dbo.Song s ON a.artistID = s.artistID
+				INNER JOIN dbo.Album al ON al.albumID = s.albumID
+		WHERE a.artistID = @artistID
 END

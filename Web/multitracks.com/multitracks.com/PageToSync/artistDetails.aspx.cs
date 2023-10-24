@@ -1,76 +1,45 @@
 ﻿using DataAccess;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-public partial class PageToSync_artistDetails : MultitracksPage
+public partial class ArtistDetails : MultitracksPage
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        try
-        {
-            int artistID = 2;
-            DataTable artistData = FetchArtistData(artistID);
+	public ArtistDetails()
+	{
+		Load += Page_Load;
+	}
 
-            if (artistData.Rows.Count > 0)
-            {
-                DisplayArtistDetails(artistData);
-                BindDataToControls(artistData);
-                title.Visible = true;
-            }
-            else
-            {
-                title.Visible = false;
-            }
-        }
-        catch (Exception ex)
-        {
-            LogException(ex);
-            title.Visible = false;
-        }
-    }
+	protected void Page_Load(object sender, EventArgs e)
+	{
+		if (Page.IsPostBack) return;
+		int artistId = Convert.ToInt32(Request.QueryString["artistID"] ?? "1");
 
-    private DataTable FetchArtistData(int artistId)
-    {
-        SQL sql = new SQL();
-        SqlParameter artistIdParam = new SqlParameter("@artistId", SqlDbType.Int);
-        artistIdParam.Value = artistId;
-        sql.Parameters.Add(artistIdParam);
-        return sql.ExecuteStoredProcedureDT("GetArtistDetails");
-    }
+		var sql = new SQL();
+		sql.Parameters.Add("@artistID", artistId);
+		var artistData = sql.ExecuteStoredProcedureDS("GetArtistDetails");
+		artistData.SetTableNames("artistDetails");
 
-    private void DisplayArtistDetails(DataTable dataTable)
-    {
-        artistTitle.Text = dataTable.Rows[0]["artistTitle"].ToString();
-        FetchImageUrl(dataTable);
-    }
+		if (artistData.Tables["artistDetails"].RowCount() > 0)
+		{
+			artistTitle.Text = artistData.Tables["artistDetails"].Field<string>("ArtistTitle");
+			artistBio.Text = artistData.Tables["artistDetails"].Field<string>("artistBiography");
+			heroURL.ImageUrl = artistData.Tables["artistDetails"].Field<string>("ArtistHeroURL");
+			imageURL.ImageUrl = artistData.Tables["artistDetails"].Field<string>("ArtistImageURL");
 
-    private void FetchImageUrl(DataTable dataTable)
-    {
-        DataRow dataRow = dataTable.Rows[0];
-        heroURL.ImageUrl = dataRow["artistHeroUrl"].ToString();
-        imageURL.ImageUrl = dataRow["artistImageUrl"].ToString();
-    }
+			songsList.DataSource = artistData;
+			songsList.DataBind();
 
-    private void BindDataToControls(DataTable dataTable)
-    {
-        songsList.DataSource = dataTable;
-        songsList.DataBind();
-        albumList.DataSource = dataTable;
-        albumList.DataBind();
-        artistBio.DataSource = dataTable;
-        artistBio.DataBind();
-    }
+			albumList.DataSource = artistData;
+			albumList.DataBind();
 
-    private void LogException(Exception ex)
-    {
-        // Log the exception (consider using a proper logging mechanism)
-        Console.WriteLine(ex.Message);
-    }
+			//artistBio.DataSource = artistData;
+			//artistBio.DataBind();
+
+			title.Visible = true;
+		}
+		else
+		{
+			title.Visible = false;
+		}
+	}
 }
