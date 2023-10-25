@@ -5,37 +5,38 @@ AS
 BEGIN
     DECLARE @TotalSongs AS INT;
     SELECT @TotalSongs = COUNT(*)
-    FROM   Song;
+    FROM Song;
     
     DECLARE @StartIndex AS INT;
     DECLARE @EndIndex AS INT;
 
-    SET @StartIndex = (@PageNumber - 1) * @PageSize;
+    SET @startIndex = (@pageNumber - 1) * @pageSize;
 
-    IF (@PageNumber * @PageSize) < @TotalSongs
+    IF (@pageNumber * @pageSize) < @totalSongs
     BEGIN
-        SET @EndIndex = @PageNumber * @PageSize;
+        SET @endIndex = @pageNumber * @pageSize;
     END
     ELSE
     BEGIN
-        SET @EndIndex = @TotalSongs;
+        SET @endIndex = @totalSongs;
     END;
 
-    SELECT   s.songID AS SongId,
-             s.dateCreation AS DateCreation,
-             s.albumID AS AlbumId,
-             s.artistID AS ArtistId,
-             s.title AS Title,
-             s.bpm AS Bpm,
-             s.timeSignature AS TimeSignature,
-             s.multitracks AS MultiTracks,
-             s.customMix AS CustomMix,
-             s.chart AS Chart,
-             s.rehearsalMix AS RehearsalMix,
-             s.patches AS Patches,
-             s.songSpecificPatches AS SongSpecificPatches,
-             s.proPresenter AS ProPresenter
-    FROM     dbo.Song AS s
-    ORDER BY SongId
-    OFFSET @StartIndex ROWS FETCH NEXT @PageSize ROWS ONLY;
+    SELECT   
+        s.songID AS songId,
+        s.dateCreation AS dateCreation,
+        s.albumID AS albumId,
+        s.artistID AS artistId,
+        s.title AS title,
+        s.bpm AS bpm,
+        s.timeSignature AS timeSignature,
+        s.multitracks AS multiTracks,
+        s.customMix AS customMix,
+        s.chart AS chart,
+        s.rehearsalMix AS rehearsalMix,
+        s.patches AS patches,
+        s.songSpecificPatches AS songSpecificPatches,
+        s.proPresenter AS proPresenter
+    FROM Song AS s
+    ORDER BY songId
+    OFFSET @startIndex ROWS FETCH NEXT @pageSize ROWS ONLY;
 END;

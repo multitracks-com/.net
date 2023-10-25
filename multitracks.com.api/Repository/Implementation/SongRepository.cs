@@ -15,34 +15,34 @@ namespace multitracks.com.api.Repository.Implementation
 		{
 			var sql = new SQL();
 
-			sql.Parameters.Add("@PageSize", pageSize);
-			sql.Parameters.Add("@PageNumber", pageNumber);
+			sql.Parameters.Add("@pageSize", pageSize);
+			sql.Parameters.Add("@pageNumber", pageNumber);
 
 			var songsDataSet = sql.ExecuteStoredProcedureDS("GetPaginatedSongsList");
 
-			songsDataSet.SetTableNames("songsResult");
+			songsDataSet.SetTableNames("SongsResult");
 
 			var songs = new List<SongDto>();
 
-			if (songsDataSet.Tables["songsResult"].RowCount() <= 0) return songs;
+			if (songsDataSet.Tables["SongsResult"].RowCount() <= 0) return songs;
 
-			songs.AddRange(from DataRow row in songsDataSet.Tables["songsResult"].Rows
+			songs.AddRange(from DataRow row in songsDataSet.Tables["SongsResult"].Rows
 				select new SongDto()
 				{
-					SongId = row.Field<int>("SongId"),
-					DateCreation = row.Field<DateTime>("DateCreation"),
-					AlbumId = row.Field<int>("AlbumId"),
-					ArtistId = row.Field<int>("ArtistId"),
-					Title = row.Field<string>("Title"),
-					Bpm = row.Field<decimal>("Bpm"),
-					TimeSignature = row.Field<string>("TimeSignature"),
-					MultiTracks = row.Field<bool>("MultiTracks"),
-					CustomMix = row.Field<bool>("CustomMix"),
-					Chart = row.Field<bool>("Chart"),
-					RehearsalMix = row.Field<bool>("RehearsalMix"),
-					Patches = row.Field<bool>("Patches"),
-					SongSpecificPatches = row.Field<bool>("SongSpecificPatches"),
-					ProPresenter = row.Field<bool>("ProPresenter"),
+					SongId = row.Field<int>("songId"),
+					DateCreation = row.Field<DateTime>("dateCreation"),
+					AlbumId = row.Field<int>("albumId"),
+					ArtistId = row.Field<int>("artistId"),
+					Title = row.Field<string>("title"),
+					Bpm = row.Field<decimal>("bpm"),
+					TimeSignature = row.Field<string>("timeSignature"),
+					MultiTracks = row.Field<bool>("multiTracks"),
+					CustomMix = row.Field<bool>("customMix"),
+					Chart = row.Field<bool>("chart"),
+					RehearsalMix = row.Field<bool>("rehearsalMix"),
+					Patches = row.Field<bool>("patches"),
+					SongSpecificPatches = row.Field<bool>("songSpecificPatches"),
+					ProPresenter = row.Field<bool>("proPresenter"),
 				});
 
 			return songs;

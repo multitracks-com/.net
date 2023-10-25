@@ -5,16 +5,16 @@ BEGIN
 	SET NOCOUNT ON;
 
 		SELECT 
-				a.title AS artistTitle,
-				a.imageURL AS artistImageUrl,
-				a.heroURL AS artistHeroUrl,
-				a.biography AS artistBiography,
-				s.title AS songTitle,
-				s.bpm AS songBpm,
-				al.title AS albumTitle,
-				al.imageURL AS albumImageUrl
+			a.title AS artistTitle,
+			a.imageURL AS artistImageUrl,
+			a.heroURL AS artistHeroUrl,
+			a.biography AS artistBiography,
+			s.title AS songTitle,
+			s.bpm AS songBpm,
+			al.title AS albumTitle,
+			al.imageURL AS albumImageUrl
 		FROM Artist a
-				INNER JOIN dbo.Song s ON a.artistID = s.artistID
-				INNER JOIN dbo.Album al ON al.albumID = s.albumID
+			INNER JOIN Song s ON a.artistID = s.artistID
+			INNER JOIN Album al ON al.albumID = s.albumID
 		WHERE a.artistID = @artistID
 END

@@ -7,6 +7,7 @@ BEGIN
         FROM Artist a
         WHERE a.title LIKE '%' + @artistName + '%'
     )
-    SELECT ArtistId, title, ImageUrl, HeroUrl, Biography
-    FROM MatchingArtists;
+    SELECT artistId, title, imageUrl, heroUrl, biography
+    FROM MatchingArtists
+    ORDER BY title;
 END

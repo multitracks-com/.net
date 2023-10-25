@@ -11,11 +11,17 @@ public partial class ArtistDetails : MultitracksPage
 
 	protected void Page_Load(object sender, EventArgs e)
 	{
-		if (Page.IsPostBack) return;
-		int artistId = Convert.ToInt32(Request.QueryString["artistID"] ?? "1");
+		if (Page.IsPostBack)
+		{
+			return;
+		}
+
+		var queryParam = Request.QueryString["artistID"];
+
+		int artistID = string.IsNullOrWhiteSpace(queryParam) ? 1 : Convert.ToInt32(queryParam);
 
 		var sql = new SQL();
-		sql.Parameters.Add("@artistID", artistId);
+		sql.Parameters.Add("@artistID", artistID);
 		var artistData = sql.ExecuteStoredProcedureDS("GetArtistDetails");
 		artistData.SetTableNames("artistDetails");
 

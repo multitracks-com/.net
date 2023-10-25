@@ -14,21 +14,21 @@ namespace multitracks.com.api.Repository.Implementation
 		{
 			var sql = new SQL();
 			sql.Parameters.Add("@artistName", artistName);
-			var dataSet = sql.ExecuteStoredProcedureDS("SearchArtistDetailsByName");
-			dataSet.SetTableNames("artistSearchResult");
+			var data = sql.ExecuteStoredProcedureDS("SearchArtistDetailsByName");
+			data.SetTableNames("ArtistSearchResult");
 
 			var artists = new List<GetArtistDto>();
 
-			if (dataSet.Tables["artistSearchResult"].RowCount() <= 0) return artists;
+			if (data.Tables["ArtistSearchResult"].RowCount() <= 0) return artists;
 
-			artists.AddRange(from DataRow row in dataSet.Tables["artistSearchResult"].Rows
+			artists.AddRange(from DataRow row in data.Tables["ArtistSearchResult"].Rows
 				select new GetArtistDto
 				{
-					ArtistId = row.Field<int>("ArtistId"),
-					Title = row.Field<string>("Title"),
-					ImageUrl = row.Field<string>("ImageUrl"),
-					Biography = row.Field<string>("Biography"),
-					HeroUrl = row.Field<string>("HeroUrl")
+					ArtistId = row.Field<int>("artistId"),
+					Title = row.Field<string>("title"),
+					ImageUrl = row.Field<string>("imageUrl"),
+					Biography = row.Field<string>("biography"),
+					HeroUrl = row.Field<string>("heroUrl")
 				});
 
 			return artists;
@@ -43,11 +43,11 @@ namespace multitracks.com.api.Repository.Implementation
 				return 0;
 			}
 
-			sql.Parameters.Add("@DateCreation", DateTime.Now.ToString("d"));
-			sql.Parameters.Add("@Title", artist.Title);
-			sql.Parameters.Add("@Biography", artist.Biography);
-			sql.Parameters.Add("@ImageUrl", artist.ImageUrl);
-			sql.Parameters.Add("@HeroUrl", artist.HeroUrl);
+			sql.Parameters.Add("@dateCreation", DateTime.Now.ToString("d"));
+			sql.Parameters.Add("@title", artist.Title);
+			sql.Parameters.Add("@biography", artist.Biography);
+			sql.Parameters.Add("@imageUrl", artist.ImageUrl);
+			sql.Parameters.Add("@heroUrl", artist.HeroUrl);
 			var result = sql.ExecuteStoredProcedure("InsertArtist");
 			return result;
 		}

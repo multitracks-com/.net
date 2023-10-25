@@ -1,11 +1,11 @@
 ﻿CREATE PROCEDURE dbo.InsertArtist
-    @DateCreation DATETIME,
-    @Title NVARCHAR(MAX),
-    @Biography NVARCHAR(MAX),
-    @ImageUrl NVARCHAR(MAX),
-    @HeroUrl NVARCHAR(MAX)
+    @dateCreation DATETIME,
+    @title NVARCHAR(MAX),
+    @biography NVARCHAR(MAX),
+    @imageUrl NVARCHAR(MAX),
+    @heroUrl NVARCHAR(MAX)
 AS
 BEGIN
     INSERT INTO Artist (dateCreation, title, biography, imageUrl, heroUrl)
-    VALUES (@DateCreation, @Title, @Biography, @ImageUrl, @HeroUrl)
+    VALUES (@dateCreation, @title, @biography, @imageUrl, @heroUrl)
 END

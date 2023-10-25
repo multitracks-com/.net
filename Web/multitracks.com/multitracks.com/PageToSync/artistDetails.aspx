@@ -28,7 +28,7 @@
 
 				if (isFullTextVisible) {
 					bioLabel.html(fullText);
-					readMoreLink.text("Read Less");
+					readMoreLink.text("Read Less...");
 				} else {
 					// Truncate text to a specific length, e.g., 200 characters
 					var truncatedText = truncateText(fullText, 200);
@@ -51,8 +51,6 @@
 			}
 		});
 	</script>
-
-
 
 </head>
 <body class="premium standard u-fix-fancybox-iframe">
